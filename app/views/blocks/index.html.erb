@@ -1,0 +1,60 @@
+
+<% title "Blocks & Documents" %>
+
+<table>
+  <tr>
+    <th>Block</th>
+	<th>Postcode</th>
+    <th>Build Date</th>
+	<% for category in @categories %>
+		<th><%=h category.description %></th>
+	<% end %>
+  </tr>
+  
+  
+  <% @blocks.each do |block| %>
+    <tr>
+      <td><%= link_to block.name , block %></td>
+	  <td><%=h block.postcode%></td>
+      <td><%=h block.build_date %></td>
+
+	  <% for category in @categories %>
+		<td>
+			<% if !block.block_documents.nil? && block.block_documents.find_by_category_id(category.id) %>
+				
+				<% if category.expiry_date_required %>	
+					
+					<% if block.block_documents.find_by_category_id(category.id).expiry_date < Date.today %>
+						
+						<%= link_to block.block_documents.find_by_category_id(category.id).document_updated_at , block.block_documents.find_by_category_id(category.id).document.url %><br>
+						<strong class='expired'>expired</strong>
+					<% else %>	
+						<%= link_to block.block_documents.find_by_category_id(category.id).document_updated_at, block.block_documents.find_by_category_id(category.id).document.url %><br>
+						expire at <%= block.block_documents.find_by_category_id(category.id).expiry_date %>
+					<% end %>
+				<% else %>
+					
+					<%= link_to block.block_documents.find_by_category_id(category.id).document_updated_at, block.block_documents.find_by_category_id(category.id).document.url %><br>
+				<% end %>	
+			<% else %>
+			
+				<% if category.build_date_depended? && category.before_build_date > block.build_date %>
+					Not applicable
+				<% else %>
+					<%= link_to "Not uploaded", new_block_block_document_path(block, :category_id => category.id)%>
+				<% end %>
+				
+			<% end %>
+					
+			
+		</td>
+	<% end %>
+	  	
+	  
+	  
+    </tr>
+  <% end %>
+</table>
+
+
+<p><%= link_to "New Block", new_block_path %></p>

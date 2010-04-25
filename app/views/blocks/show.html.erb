@@ -1,0 +1,20 @@
+<% title "Block" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @block.name %>
+</p>
+<p>
+  <strong>Postcode:</strong>
+  <%=h @block.postcode %>
+</p>
+<p>
+  <strong>Build Date:</strong>
+  <%=h @block.build_date %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_block_path(@block) %> |
+  <%= link_to "Destroy", @block, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", blocks_path %>
+</p>

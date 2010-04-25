@@ -1,0 +1,21 @@
+<% title "Categories" %>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Expiry Date Required</th>
+    <th>Build Date Depended</th>
+  </tr>
+  <% for category in @categories %>
+    <tr>
+      <td><%=h category.description %></td>
+      <td><%=h category.expiry_date_required %></td>
+      <td><%=h category.build_date_depended %></td>
+      <td><%= link_to "Show", category %></td>
+      <td><%= link_to "Edit", edit_category_path(category) %></td>
+      <td><%= link_to "Destroy", category, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Category", new_category_path %></p>

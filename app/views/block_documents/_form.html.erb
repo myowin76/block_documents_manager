@@ -1,0 +1,36 @@
+<% form_for [@block,@block_document], :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+	
+	<p>
+	    <strong><%= f.label :block_name %>:</strong>
+	    <%= f.label @block.name %>
+	  </p>
+	  <% # debugger %>
+	<p>
+	    <strong><%= f.label :category %>:</strong>
+	    <%= f.label @block_document.category.description %>
+		<%= f.hidden_field :category_id, :value => @block_document.category_id %>
+	</p>
+	  <%# debugger %>
+	<p>
+	    Document Name<br />
+	    <%= f.text_field :name %>
+	</p>
+	  
+	<p>
+		<%= f.label :document %><br />
+		<%= f.file_field :document %>
+	</p>
+	
+	
+	<% if @block_document.category.expiry_date_required %>
+		<p>
+			<%= f.label :expiry_date %><br />
+			<%= f.text_field :expiry_date, :class => 'datepicker' %> dd/mm/yyyy
+		</p>
+	<% end %>
+	
+  
+	
+  <p><%= f.submit "Submit" %></p>
+<% end %>

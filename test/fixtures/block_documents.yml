@@ -1,0 +1,13 @@
+one:
+  block_id: 1
+  category_id: 1
+  expiry_date: 2010-03-28
+  before_build_date: 2010-03-28
+  name: MyString
+
+two:
+  block_id: 1
+  category_id: 1
+  expiry_date: 2010-03-28
+  before_build_date: 2010-03-28
+  name: MyString

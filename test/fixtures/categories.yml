@@ -1,0 +1,9 @@
+one:
+  description: MyString
+  expiry_date_required: false
+  build_date_depended: false
+
+two:
+  description: MyString
+  expiry_date_required: false
+  build_date_depended: false

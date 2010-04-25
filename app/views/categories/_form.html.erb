@@ -1,0 +1,20 @@
+<% form_for @category do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :expiry_date_required %><br />
+    <%= f.check_box :expiry_date_required %>
+  </p>
+  <p>
+    <%= f.label :build_date_depended %><br />
+    <%= f.check_box :build_date_depended %>
+  </p>
+<p>
+    <%= f.label :before_build_date %><br />
+    <%= f.text_field :before_build_date, :class => 'datepicker' %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

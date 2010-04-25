@@ -1,0 +1,20 @@
+<% title "Category" %>
+
+<p>
+  <strong>Description:</strong>
+  <%=h @category.description %>
+</p>
+<p>
+  <strong>Expiry Date Required:</strong>
+  <%=h @category.expiry_date_required %>
+</p>
+<p>
+  <strong>Build Date Depended:</strong>
+  <%=h @category.build_date_depended %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_category_path(@category) %> |
+  <%= link_to "Destroy", @category, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", categories_path %>
+</p>

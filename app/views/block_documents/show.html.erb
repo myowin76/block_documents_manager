@@ -1,0 +1,28 @@
+<% title "Block Document" %>
+
+<p>
+  <strong>Block:</strong>
+  <%=h @block_document.block_id %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%=h @block_document.category_id %>
+</p>
+<p>
+  <strong>Expiry Date:</strong>
+  <%=h @block_document.expiry_date %>
+</p>
+<p>
+  <strong>Before Build Date:</strong>
+  <%=h @block_document.before_build_date %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%=h @block_document.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_block_document_path(@block_document) %> |
+  <%= link_to "Destroy", @block_document, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", block_documents_path %>
+</p>
